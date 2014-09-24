@@ -79,7 +79,12 @@ class FunSetSuite extends FunSuite {
     val s3 = singletonSet(3)
     val s4 = singletonSet(1)
     val s5 = singletonSet(4)
-
+    val setPositiveNumbers = union(singletonSet(1), singletonSet(300))
+    val setNegativeNumbers = union(singletonSet(-10), singletonSet(-99))
+    val setPositiveAndNegativeNumbers = union(setPositiveNumbers, setNegativeNumbers)
+    val setEvenNumbers = union(singletonSet(4), singletonSet(6))
+    val setOddNumbers = union(singletonSet(3), singletonSet(9))
+    val setEvenAndOddNumbers = union(setEvenNumbers, setOddNumbers)
   }
 
   /**
@@ -118,4 +123,31 @@ class FunSetSuite extends FunSuite {
       assert(!contains(s, 3), "Union 3")
     }
   }
+
+  test("forall function") {
+    new TestSets {
+
+      assert(forall(setPositiveNumbers, { elem: Int => elem > 0}))
+
+      assert(forall(setNegativeNumbers, { elem: Int => elem < 0}))
+
+      assert(!forall(setPositiveAndNegativeNumbers, { elem: Int => elem < 0}))
+
+      assert(forall(setEvenNumbers, { elem: Int => (elem % 2) == 0}))
+
+      assert(forall(setOddNumbers, { elem: Int => (elem % 2) != 0}))
+
+      assert(!forall(setEvenAndOddNumbers, { elem: Int => (elem % 2) == 0}))
+
+    }
+  }
+
+
+  test("exists function") {
+    new TestSets {
+      assert(exists(setPositiveAndNegativeNumbers, { elem: Int => elem > 0}))
+      assert(exists(setEvenAndOddNumbers, { elem: Int => (elem % 2) == 0}))
+    }
+  }
+
 }

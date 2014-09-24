@@ -1,2 +1,2 @@
-[debug] Potentially incompatible versions of dependencies of {file:/home/ftrianakast/IdeaProjects/progfun/week_2/}assignment:
-[debug]    org.scala-lang: 2.10.1, 2.10.4, 2.10.3, 2.10.0
+[0m[[0mdebug[0m] [0mPotentially incompatible versions of dependencies of {file:/home/ftrianakast/IdeaProjects/progfun/week_2/}assignment:[0m
+[0m[[0mdebug[0m] [0m   org.scala-lang: 2.10.1, 2.10.4, 2.10.3, 2.10.0[0m
